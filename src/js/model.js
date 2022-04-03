@@ -280,10 +280,10 @@ export const getAllCal = async function (ingredients) {
   const calArr = [];
 
   arr.forEach((el, i) => {
+    if (!el) return;
     if (el !== undefined) {
       console.log(Object.values(el)[1]);
       calArr.push(Object.values(el)[1]);
-      if (!el) return;
     }
   });
 
