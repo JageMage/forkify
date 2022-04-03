@@ -29,7 +29,7 @@ const controlRecipes = async function () {
 
     // 1) Loading recipe
     await model.loadRecipe(id);
-    await model.getAllCal(model.state.recipe.ingredients);
+    // await model.getAllCal(model.state.recipe.ingredients);
 
     // 2) Rendering recipe
     recipeView.render(model.state.recipe);
