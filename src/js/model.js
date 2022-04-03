@@ -299,11 +299,11 @@ export const getAllCal = async function (ingredients) {
   // return to not testing values
   /////////////////
   ////////////////
+  console.log(calories);
 
   const calories = calArr.reduce((partialSum, a) => partialSum + a, 0);
 
   state.recipe.calories = calories;
-  console.log(calories);
 };
 
 const init = function () {
