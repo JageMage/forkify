@@ -283,6 +283,7 @@ export const getAllCal = async function (ingredients) {
     if (el !== undefined) {
       console.log(Object.values(el)[1]);
       calArr.push(Object.values(el)[1]);
+      if (!el) return;
     }
   });
 
