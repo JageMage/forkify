@@ -277,9 +277,11 @@ export const getAllCal = async function (ingredients) {
 
   console.log(arr);
 
+  const cleanArr = arr.filter(el => el !== undefined);
+
   const calArr = [];
 
-  arr.forEach((el, i) => {
+  cleanArr.forEach((el, i) => {
     if (!el) return;
     if (el !== undefined) {
       console.log(Object.values(el)[1]);
