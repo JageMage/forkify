@@ -226,10 +226,11 @@ export const cleanCalendar = function (calendar) {
 const getID = async function (food) {
   try {
     const idData = await fetch(
-      `https://api.spoonacular.com/food/ingredients/search?apiKey=99801944b3eb4872a56e86637f24166c&query=${food}&number=1`
+      `https://api.spoonacular.com/food/ingredients/search?apiKey=fc174ebfc63740a2a3cfc9bb6af66759&query=${food}&number=1`
     );
 
     // key=99801944b3eb4872a56e86637f24166c&
+    // fc174ebfc63740a2a3cfc9bb6af66759
 
     const res = await idData.json();
     if (res.status === 'failure') return;
@@ -249,7 +250,7 @@ const getCalJSON = async function (food, amount = 1) {
 
     if (!id) return;
 
-    const url = `https://api.spoonacular.com/food/ingredients/${id}/information?apiKey=99801944b3eb4872a56e86637f24166c&amount=${amount}`;
+    const url = `https://api.spoonacular.com/food/ingredients/${id}/information?apiKey=fc174ebfc63740a2a3cfc9bb6af66759&amount=${amount}`;
 
     const fetchPro = await fetch(url);
     const res2 = await fetchPro.json();
@@ -275,11 +276,11 @@ export const getAllCal = async function (ingredients) {
     arr.push(item);
   }
 
-  console.log(arr);
-
   const cleanArr = arr.filter(el => el !== undefined);
 
   const calArr = [];
+
+  console.log(cleanArr);
 
   cleanArr.forEach((el, i) => {
     if (!el) return;
