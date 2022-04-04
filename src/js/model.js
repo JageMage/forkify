@@ -244,7 +244,7 @@ const getID = async function (food) {
   }
 };
 
-const getCalJSON = async function (food, amount = 1) {
+export const getCalJSON = async function (food, amount = 1) {
   try {
     const id = await getID(food);
 
