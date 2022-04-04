@@ -44,6 +44,8 @@ const controlRecipes = async function () {
         arr.push(item);
       }
 
+      console.log(arr);
+
       const cleanArr = arr.filter(el => el !== undefined);
 
       const calArr = [];
