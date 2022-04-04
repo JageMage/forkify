@@ -36,6 +36,7 @@ const controlRecipes = async function () {
       const arr = [];
 
       for (el of ingredients) {
+        console.log(el);
         let amount = el.quantity;
         if (amount === null) amount = 1;
 
