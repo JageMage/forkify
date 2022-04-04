@@ -64,15 +64,12 @@ const controlRecipes = async function () {
       console.log(calArr);
       if (!calArr) return;
 
-      console.log(calories);
-
       const calories = calArr.reduce((partialSum, a) => partialSum + a, 0);
 
       if (!calories) return;
 
       // WTF IS WRONK!!!!!!!!
-
-      state.recipe.calories = calories;
+      model.state.recipe.calories = calories;
     };
 
     await getAllCal(model.state.recipe.ingredients);

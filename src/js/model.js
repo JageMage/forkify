@@ -254,6 +254,7 @@ export const getCalJSON = async function (food, amount = 1) {
 
     const fetchPro = await fetch(url);
     const res2 = await fetchPro.json();
+    if (res2.status === 'failure') return;
     const calories = res2.nutrition.nutrients.find(
       el => el.name === 'Calories'
     );
