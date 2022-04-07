@@ -31,48 +31,6 @@ const controlRecipes = async function () {
     await model.loadRecipe(id);
     // await model.getAllCal(model.state.recipe.ingredients);
 
-    const getAllCal = async function (ingredients) {
-      console.log(ingredients);
-      const arr = [];
-
-      for (el of ingredients) {
-        console.log(el);
-        let amount = el.quantity;
-        if (amount === null) amount = 1;
-
-        const food = el.description;
-        const item = await model.getCalJSON(food, amount);
-        arr.push(item);
-      }
-
-      console.log(arr);
-
-      const cleanArr = arr.filter(el => el !== undefined);
-
-      const calArr = [];
-
-      console.log(cleanArr);
-      debugger;
-
-      for (el of cleanArr) {
-        if (!el) return;
-        if (el !== undefined) {
-          console.log(Object.values(el)[1]);
-          calArr.push(Object.values(el)[1]);
-        }
-      }
-
-      console.log(calArr);
-      if (!calArr) return;
-
-      const calories = calArr.reduce((partialSum, a) => partialSum + a, 0);
-
-      if (!calories) return;
-
-      // WTF IS WRONK!!!!!!!!
-      model.state.recipe.calories = calories;
-    };
-
     await getAllCal(model.state.recipe.ingredients);
 
     // 2) Rendering recipe

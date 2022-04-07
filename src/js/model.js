@@ -264,46 +264,45 @@ export const getCalJSON = async function (food, amount = 1) {
   }
 };
 
-// export const getAllCal = async function (ingredients) {
-//   console.log(ingredients);
-//   const arr = [];
+export const getAllCal = async function (ingredients) {
+  console.log(ingredients);
+  const arr = [];
 
-//   for (el of ingredients) {
-//     let amount = el.quantity;
-//     if (amount === null) amount = 1;
+  for (el of ingredients) {
+    console.log(el);
+    let amount = el.quantity;
+    if (amount === null) amount = 1;
 
-//     const food = el.description;
-//     const item = await getCalJSON(food, amount);
-//     arr.push(item);
-//   }
+    const food = el.description;
+    const item = await model.getCalJSON(food, amount);
+    arr.push(item);
+  }
 
-//   const cleanArr = arr.filter(el => el !== undefined);
+  console.log(arr);
 
-//   const calArr = [];
+  const cleanArr = arr.filter(el => el !== undefined);
 
-//   console.log(cleanArr);
+  const calArr = [];
 
-//   for (el of cleanArr) {
-//     if (!el) return;
-//     if (el !== undefined) {
-//       console.log(Object.values(el)[1]);
-//       calArr.push(Object.values(el)[1]);
-//     }
-//   }
+  console.log(cleanArr);
 
-//   console.log(calArr);
-//   if (!calArr) return;
+  for (el of cleanArr) {
+    if (!el) return;
+    if (el !== undefined) {
+      console.log(Object.values(el)[1]);
+      calArr.push(Object.values(el)[1]);
+    }
+  }
 
-//   console.log(calories);
+  console.log(calArr);
+  if (!calArr) return;
 
-//   const calories = calArr.reduce((partialSum, a) => partialSum + a, 0);
+  const calories = calArr.reduce((partialSum, a) => partialSum + a, 0);
 
-//   if (!calories) return;
+  if (!calories) return;
 
-//   // WTF IS WRONK!!!!!!!!
-
-//   state.recipe.calories = calories;
-// };
+  model.state.recipe.calories = calories;
+};
 
 const init = function () {
   const calendar = localStorage.getItem('calendered');
