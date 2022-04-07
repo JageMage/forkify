@@ -274,7 +274,7 @@ export const getAllCal = async function (ingredients) {
     if (amount === null) amount = 1;
 
     const food = el.description;
-    const item = await model.getCalJSON(food, amount);
+    const item = await getCalJSON(food, amount);
     arr.push(item);
   }
 
@@ -301,7 +301,7 @@ export const getAllCal = async function (ingredients) {
 
   if (!calories) return;
 
-  model.state.recipe.calories = calories;
+  state.recipe.calories = calories;
 };
 
 const init = function () {
