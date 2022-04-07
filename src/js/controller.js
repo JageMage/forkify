@@ -52,6 +52,7 @@ const controlRecipes = async function () {
       const calArr = [];
 
       console.log(cleanArr);
+      debugger;
 
       for (el of cleanArr) {
         if (!el) return;
