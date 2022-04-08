@@ -151,7 +151,7 @@ class RecipeView extends View {
   }
 
   _generateMarkupCalories() {
-    if (this._data.calories === 0) return '';
+    if (this._data.calories === 0 || !this._data.calories) return '';
     else return ` ${this._data.calories}kcal`;
   }
 
